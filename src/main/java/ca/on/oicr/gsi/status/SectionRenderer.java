@@ -1,6 +1,9 @@
 package ca.on.oicr.gsi.status;
 
 import java.time.Instant;
+import java.util.stream.Stream;
+
+import ca.on.oicr.gsi.Pair;
 
 public interface SectionRenderer {
 
@@ -9,6 +12,12 @@ public interface SectionRenderer {
 	 * clicked in the second column
 	 */
 	void javaScriptLink(String header, String code, String value);
+
+	/**
+	 * Write a row in the table with the supplied value in the second column; apply
+	 * the supplied attributes to the <tt>TR</tt>
+	 */
+	void line(Stream<Pair<String, String>> attributes, String header, String value);
 
 	/**
 	 * Write a row in the table with the supplied value in the second column

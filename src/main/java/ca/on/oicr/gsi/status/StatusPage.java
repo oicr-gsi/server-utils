@@ -9,9 +9,11 @@ import java.util.stream.Stream;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
+import ca.on.oicr.gsi.Pair;
+
 /**
  * Create a status page for a server
- * 
+ *
  * This should be bound to the root URL of the server
  */
 public abstract class StatusPage extends BasePage {
@@ -24,7 +26,7 @@ public abstract class StatusPage extends BasePage {
 	/**
 	 * Add an extra rows to the <b>Core<b> table displayed at the top of the status
 	 * page
-	 * 
+	 *
 	 * This is where server-level metrics should go, including version and build
 	 * information
 	 */
@@ -56,6 +58,29 @@ public abstract class StatusPage extends BasePage {
 			}
 
 			@Override
+			public void line(Stream<Pair<String, String>> attributes, String header, String value) {
+				try {
+					writer.writeStartElement("tr");
+					attributes.forEach(attribute -> {
+						try {
+							writer.writeAttribute(attribute.first(), attribute.second());
+						} catch (final XMLStreamException e) {
+							throw new RuntimeException(e);
+						}
+					});
+					writer.writeStartElement("td");
+					writer.writeCharacters(header);
+					writer.writeEndElement();
+					writer.writeStartElement("td");
+					writer.writeCharacters(value);
+					writer.writeEndElement();
+					writer.writeEndElement();
+				} catch (final XMLStreamException e) {
+					throw new RuntimeException(e);
+				}
+			}
+
+			@Override
 			public void line(String header, Instant startTime) {
 				line(header, DateTimeFormatter.ISO_INSTANT.format(startTime));
 			}
@@ -72,18 +97,7 @@ public abstract class StatusPage extends BasePage {
 
 			@Override
 			public void line(String header, String value) {
-				try {
-					writer.writeStartElement("tr");
-					writer.writeStartElement("td");
-					writer.writeCharacters(header);
-					writer.writeEndElement();
-					writer.writeStartElement("td");
-					writer.writeCharacters(value);
-					writer.writeEndElement();
-					writer.writeEndElement();
-				} catch (final XMLStreamException e) {
-					throw new RuntimeException(e);
-				}
+				line(Stream.empty(), header, value);
 			}
 
 			@Override
