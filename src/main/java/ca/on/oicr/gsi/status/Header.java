@@ -18,7 +18,9 @@ public abstract class Header {
 			void append(XMLStreamWriter writer) throws XMLStreamException {
 				writer.writeStartElement("style");
 				writer.writeAttribute("type", "text/css");
-				writer.writeCharacters(css);
+				writer.writeCharacters("/*");
+				writer.writeCData("*/" + css + "/*");
+				writer.writeCharacters("*/");
 				writer.writeEndElement();
 			}
 		};
@@ -80,7 +82,8 @@ public abstract class Header {
 			void append(XMLStreamWriter writer) throws XMLStreamException {
 				writer.writeStartElement("script");
 				writer.writeAttribute("type", type);
-				writer.writeCharacters(code);
+				writer.writeCharacters("//");
+				writer.writeCData("\n" + code + "\n//");
 				writer.writeEndElement();
 			}
 		};
