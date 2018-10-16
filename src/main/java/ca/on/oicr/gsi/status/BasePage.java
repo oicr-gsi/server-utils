@@ -76,7 +76,7 @@ public abstract class BasePage {
 			writer.writeStartElement("nav");
 
 			writer.writeStartElement("a");
-			writer.writeAttribute("href", "/");
+			writer.writeAttribute("href", ".");
 			writer.writeCharacters(server.name());
 			writer.writeEndElement();
 
@@ -88,7 +88,7 @@ public abstract class BasePage {
 				}
 			});
 			writer.writeStartElement("a");
-			writer.writeAttribute("href", "/api-docs/index.html");
+			writer.writeAttribute("href", "api-docs/index.html");
 			writer.writeCharacters("API Docs");
 			writer.writeEndElement();
 
