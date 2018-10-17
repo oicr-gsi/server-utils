@@ -102,7 +102,7 @@ public abstract class StatusPage extends BasePage {
 
 			@Override
 			public void lineSpan(String header, Instant startTime) {
-				line(header, Duration.between(startTime, now).toString());
+				line(header, startTime == null ? "Never" : Duration.between(startTime, now).toString());
 			}
 
 			@Override
