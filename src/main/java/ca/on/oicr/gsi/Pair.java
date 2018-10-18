@@ -12,16 +12,24 @@ import java.util.stream.Stream;
  * Immutable pair of two values
  */
 public final class Pair<T, U> {
+	/**
+	 * Convert a consumer of two items into a consumer of pairs of the same types of
+	 * items.
+	 */
 	public static <T, U> Consumer<Pair<T, U>> consume(BiConsumer<? super T, ? super U> consumer) {
 		return pair -> pair.accept(consumer);
 	}
 
+	/**
+	 * Create a stateful function that transforms an item into a pair with the first
+	 * element being the zero-based index of the item
+	 */
 	public static <T> Function<T, Pair<Integer, T>> number() {
 		return number(0);
 	}
 
 	/**
-	 * Create a stateful function that transforms an item in a pair with the first
+	 * Create a stateful function that transforms an item into a pair with the first
 	 * element being the index of this item.
 	 *
 	 * This is useful to number items using {@link Stream#map(Function)}

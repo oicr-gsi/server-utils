@@ -5,6 +5,11 @@ import java.util.stream.Stream;
 
 import ca.on.oicr.gsi.Pair;
 
+/**
+ * Interface to create the rows of a table in a configuration block on the
+ * status page.
+ *
+ */
 public interface SectionRenderer {
 
 	/**
