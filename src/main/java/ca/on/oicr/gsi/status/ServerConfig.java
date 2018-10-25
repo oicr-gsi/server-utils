@@ -22,4 +22,11 @@ public interface ServerConfig {
 	 * A collection of navigation links to display at the top of every page
 	 */
 	Stream<NavigationMenu> navigation();
+	
+	/**
+	 * @return the URL path to API documentation, relative to the context root. Defaults to "api-docs/index.html"
+	 */
+	default String documentationUrl() {
+	  return "api-docs/index.html";
+	}
 }

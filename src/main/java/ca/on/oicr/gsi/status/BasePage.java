@@ -88,7 +88,7 @@ public abstract class BasePage {
 				}
 			});
 			writer.writeStartElement("a");
-			writer.writeAttribute("href", "api-docs/index.html");
+			writer.writeAttribute("href", server.documentationUrl());
 			writer.writeCharacters("API Docs");
 			writer.writeEndElement();
 
