@@ -20,7 +20,7 @@ public abstract class StatusPage extends BasePage {
 	private final static Instant START_TIME = Instant.now();
 
 	public StatusPage(ServerConfig server) {
-		super(server);
+		super(server, true);
 	}
 
 	/**
