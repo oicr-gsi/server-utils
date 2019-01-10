@@ -27,10 +27,12 @@ public abstract class BasePage {
 			+ "td,th { border:none; }\n" + "td { border-top:1px solid #ddd; }\n" + ".even td { width:50%; }\n"//
 			+ "th { font-weight:700; text-align:left; }\n" + "tr:hover { background-color:#f5f5f5; }");
 	private final ServerConfig server;
+	private final boolean autorefresh;
 
-	public BasePage(ServerConfig server) {
+	public BasePage(ServerConfig server, boolean autorefresh) {
 		super();
 		this.server = server;
+		this.autorefresh = autorefresh;
 	}
 
 	/**
@@ -60,6 +62,8 @@ public abstract class BasePage {
 			writer.writeStartElement("title");
 			writer.writeCharacters(server.name());
 			writer.writeEndElement();
+			if(autorefresh) writer.writeEmptyElement(
+					"meta http-equiv=\"refresh\" content=\"5\"");
 
 			CSS.append(writer);
 			Stream.concat(headers(), server.headers()).forEach(header -> {

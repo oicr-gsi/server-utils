@@ -11,7 +11,7 @@ public abstract class TablePage extends BasePage {
 	private final String[] headers;
 
 	public TablePage(ServerConfig server, String... headers) {
-		super(server);
+		super(server, false);
 		this.headers = headers;
 	}
 
