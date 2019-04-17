@@ -20,6 +20,8 @@ public abstract class BasePage {
 			+ "nav > div { position: relative; display: inline-block; }\n" + "nav > div:hover div { display: block; }\n"//
 			+ "nav > div > div { position:absolute; min-width: 200px; background-color: #fff; border:1px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.175); border-radius:4px; z-index:1000; display:none; }\n"//
 			+ "nav > div > div a { display:block; text-decoration:none; font-weight:400; padding: 0.5em 1em }\n"//
+			+ "nav > div > div a:first-child { border-top-left-radius: 4px; border-top-right-radius: 4px }\n"//
+			+ "nav > div > div a:last-child { border-bottom-left-radius: 4px; border-bottom-right-radius: 4px }\n"//
 			+ "nav > div > div a:link, nav > div > div a:visited, nav > div > div a:hover, nav > div > div a:active { color:#000; }\n"//
 			+ "nav > div > div a:hover, nav > div > div a:active { background-color:#eee; }\n"//
 			+ "nav > :first-child { font-weight: bold }\n"//
