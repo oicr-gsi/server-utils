@@ -13,8 +13,8 @@ import javax.xml.stream.XMLStreamWriter;
 public abstract class BasePage {
 	private static final Header CSS = Header.css("body { margin:0; font-family:sans-serif; }\n"//
 			+ "h1 { font-size:120%; }\n"//
-			+ "body > div { margin:1em; }\n" + "nav { background-color:#222; display:block; margin:0; padding: 1em }\n"//
-			+ "nav > a, nav > div > span { padding:1em; text-decoration:none; font-weight:400; font-size:120% }\n"//
+			+ "body > div { margin:1em; }\n" + "nav { background-color:#222; display:block; margin:0; padding: 0.5em }\n"//
+			+ "nav > a, nav > div > span { display:inline-block; padding:0.5em; text-decoration:none; font-weight:400; font-size:120% }\n"//
 			+ "nav > a:link, nav > a:visited, nav > div > span { color:#9d9d9d; } \n"//
 			+ "nav > a:hover, nav > a:active { color:#fff; }\n"//
 			+ "nav > div { position: relative; display: inline-block; }\n" + "nav > div:hover div { display: block; }\n"//
