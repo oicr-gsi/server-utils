@@ -32,14 +32,17 @@ public abstract class BasePage {
               + ".even td { width:50%; }\n" //
               + "th { font-weight:700; text-align:left; }\n"
               + "tr:hover { background-color:#f5f5f5; }");
-  private final ServerConfig server;
   private final boolean autorefresh;
+  private final ServerConfig server;
 
   public BasePage(ServerConfig server, boolean autorefresh) {
     super();
     this.server = server;
     this.autorefresh = autorefresh;
   }
+
+  /** The URL of this page as it appears in the {@link ServerConfig#navigation()} */
+  public abstract String activeUrl();
 
   /** Add additional header elements to the page */
   public Stream<Header> headers() {
@@ -89,7 +92,7 @@ public abstract class BasePage {
           .forEach(
               link -> {
                 try {
-                  link.append(writer);
+                  link.append(writer, this);
                 } catch (final XMLStreamException e) {
                   throw new RuntimeException(e);
                 }

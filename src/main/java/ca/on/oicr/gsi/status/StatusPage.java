@@ -21,6 +21,11 @@ public abstract class StatusPage extends BasePage {
     super(server, true);
   }
 
+  @Override
+  public String activeUrl() {
+    return "";
+  }
+
   /**
    * Add an extra rows to the <b>Core<b> table displayed at the top of the status page
    *
