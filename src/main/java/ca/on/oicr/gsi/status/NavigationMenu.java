@@ -10,16 +10,19 @@ public abstract class NavigationMenu {
     return new NavigationMenu() {
 
       @Override
-      void append(XMLStreamWriter writer) throws XMLStreamException {
+      void append(XMLStreamWriter writer, BasePage page) throws XMLStreamException {
         writer.writeStartElement("a");
         writer.writeAttribute("href", href);
+        if (page.activeUrl().equals(href)) {
+          writer.writeAttribute("style", "font-weight: bold");
+        }
         writer.writeCharacters(name);
         writer.writeEndElement();
       }
 
       @Override
-      void appendInner(XMLStreamWriter writer) throws XMLStreamException {
-        append(writer);
+      void appendInner(XMLStreamWriter writer, BasePage page) throws XMLStreamException {
+        append(writer, page);
       }
     };
   }
@@ -37,20 +40,20 @@ public abstract class NavigationMenu {
         writer.writeEndElement();
         writer.writeStartElement("div");
         for (final NavigationMenu item : items) {
-          item.appendInner(writer);
+          item.appendInner(writer, page);
         }
         writer.writeEndElement();
         writer.writeEndElement();
       }
 
       @Override
-      void appendInner(XMLStreamWriter writer) throws XMLStreamException {
+      void appendInner(XMLStreamWriter writer, BasePage page) throws XMLStreamException {
         throw new UnsupportedOperationException("Cannot nest navigation menus");
       }
     };
   }
 
-  abstract void append(XMLStreamWriter writer) throws XMLStreamException;
+  abstract void append(XMLStreamWriter writer, BasePage page) throws XMLStreamException;
 
-  abstract void appendInner(XMLStreamWriter writer) throws XMLStreamException;
+  abstract void appendInner(XMLStreamWriter writer, BasePage page) throws XMLStreamException;
 }
