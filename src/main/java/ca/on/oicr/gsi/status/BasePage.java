@@ -16,7 +16,7 @@ public abstract class BasePage {
               + "nav { background-color:#222; display:block; margin:0; padding: 0.5em }\n" //
               + "nav > a, nav > div > span { display:inline-block; padding:0.5em; text-decoration:none; font-weight:400; font-size:120% }\n" //
               + "nav > a:link, nav > a:visited, nav > div > span { color:#9d9d9d; } \n" //
-              + "nav > a:hover, nav > a:active { color:#fff; }\n" //
+              + "nav > a:hover, nav > a:active, nav > div:hover > span { color:#fff; }\n" //
               + "nav > div { position: relative; display: inline-block; }\n"
               + "nav > div:hover div { display: block; }\n" //
               + "nav > div > div { position:absolute; min-width: 200px; background-color: #fff; border:1px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.175); border-radius:4px; z-index:1000; display:none; }\n" //
