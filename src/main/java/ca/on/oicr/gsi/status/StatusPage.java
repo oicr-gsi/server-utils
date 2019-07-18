@@ -18,7 +18,11 @@ public abstract class StatusPage extends BasePage {
   private static final Instant START_TIME = Instant.now();
 
   public StatusPage(ServerConfig server) {
-    super(server, true);
+    this(server, true);
+  }
+
+  public StatusPage(ServerConfig server, boolean autorefresh) {
+    super(server, autorefresh);
   }
 
   @Override
