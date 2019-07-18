@@ -32,7 +32,7 @@ public abstract class NavigationMenu {
     return new NavigationMenu() {
 
       @Override
-      void append(XMLStreamWriter writer) throws XMLStreamException {
+      void append(XMLStreamWriter writer, BasePage page) throws XMLStreamException {
         writer.writeStartElement("div");
         writer.writeStartElement("span");
         writer.writeCharacters(name);
