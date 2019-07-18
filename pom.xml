@@ -3,7 +3,7 @@
 
   <groupId>ca.on.oicr.gsi</groupId>
   <artifactId>server-utils</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>server-utils</name>
