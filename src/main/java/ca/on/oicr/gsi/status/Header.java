@@ -86,6 +86,7 @@ public abstract class Header {
       void append(XMLStreamWriter writer) throws XMLStreamException {
         writer.writeStartElement("script");
         writer.writeAttribute("src", url);
+        writer.writeComment("");
         writer.writeEndElement();
       }
     };
