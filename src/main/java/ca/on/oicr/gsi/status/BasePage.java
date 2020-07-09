@@ -56,7 +56,7 @@ public abstract class BasePage {
   public final void renderPage(OutputStream output) {
     final XMLOutputFactory outputFactory = XMLOutputFactory.newFactory();
     try {
-      final XMLStreamWriter writer = outputFactory.createXMLStreamWriter(output);
+      final XMLStreamWriter writer = outputFactory.createXMLStreamWriter(output, "UTF-8");
       writer.writeStartDocument("utf-8", "1.0");
       writer.writeStartElement("html");
 
