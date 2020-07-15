@@ -1,6 +1,7 @@
 package ca.on.oicr.gsi.status;
 
 import ca.on.oicr.gsi.Pair;
+import java.lang.management.ManagementFactory;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +16,8 @@ import javax.xml.stream.XMLStreamWriter;
  * <p>This should be bound to the root URL of the server
  */
 public abstract class StatusPage extends BasePage {
-  private static final Instant START_TIME = Instant.now();
+  private static final Instant START_TIME =
+      Instant.ofEpochMilli(ManagementFactory.getRuntimeMXBean().getStartTime());
 
   public StatusPage(ServerConfig server) {
     this(server, true);
