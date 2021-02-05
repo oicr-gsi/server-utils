@@ -57,7 +57,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Automatic-Module-Name>ca.oicr.gsi.serverutils</Automatic-Module-Name>
+              <Automatic-Module-Name>ca.on.oicr.gsi.serverutils</Automatic-Module-Name>
             </manifestEntries>
           </archive>
         </configuration>
